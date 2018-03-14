@@ -31,6 +31,6 @@ http://macappstore.org/mosquitto/
 mosquitto_sub -h localhost -t test
 
 // Starta publisher. -m message
-mosquitto_pub -h localhost -t test -m "hello world"
+mosquitto_pub -h localhost -t test -m "testing testing..."
 ```
 
