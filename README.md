@@ -4,14 +4,14 @@ Summariskt om MQTT
 ## Installera på Raspberry Pi
 http://www.switchdoc.com/2016/02/tutorial-installing-and-testing-mosquitto-mqtt-on-raspberry-pi/
 
-Testad och verifierad
+(Testad och verifierad)
 
 ## Installera på LINUX
 ```bash
 sudo apt-get install mosquito mosquito-clients
 ```
 
-Testad och verifierad
+(Testad och verifierad)
 
 ## Installera på Windows
 https://www.eclipse.org/mosquitto/download
