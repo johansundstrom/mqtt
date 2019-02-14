@@ -1,7 +1,6 @@
-# MQTT
-om MQTT
+<a href="README.md"><< tillbaka</a>
 
-<h2><a href="installera.md">Installera</a></h2>
+# Installera
 
 ## Installera på Raspberry Pi
 http://www.switchdoc.com/2016/02/tutorial-installing-and-testing-mosquitto-mqtt-on-raspberry-pi/
@@ -35,4 +34,3 @@ mosquitto_sub -h localhost -t test
 // Starta publisher. -m message
 mosquitto_pub -h localhost -t test -m "testing testing..."
 ```
-
