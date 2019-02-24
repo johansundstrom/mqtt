@@ -27,7 +27,7 @@ http://macappstore.org/mosquitto/
 (ej testad)
 
 ## Installera på Arduino
-Flera bibliotek finns. Jag rekommenderar Nick O'Leary.
+Flera bibliotek finns. Jag rekommenderar PubSubClient av Nick O'Leary.
 
 ## Testa Broker
 ```bash
