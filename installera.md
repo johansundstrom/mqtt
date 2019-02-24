@@ -5,6 +5,12 @@
 ## Installera på Raspberry Pi
 http://www.switchdoc.com/2016/02/tutorial-installing-and-testing-mosquitto-mqtt-on-raspberry-pi/
 
+```bash
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt install -y mosquitto mosquitto-clients
+```
+
 (Testad och verifierad)
 
 ## Installera på LINUX
