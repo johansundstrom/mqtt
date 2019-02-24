@@ -26,6 +26,9 @@ http://macappstore.org/mosquitto/
 
 (ej testad)
 
+## Installera på Arduino
+Flera bibliotek finns. Jag rekommenderar Nick O'Leary.
+
 ## Testa Broker
 ```bash
 // Starta subscriber. -h host, -t topic
