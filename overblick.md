@@ -10,7 +10,10 @@
 * En klient kan vara *Publisher* eller *Subscriber*
 * Sensorer sänder - Publisher
 * Lampor lyssnar - Subscriber
-* Broker har tre olika QoS 
+* Broker har tre olika QoS
+ - 0 levereras endast en gång (mest osäkert)
+ - 1 levereras minst en gång (sänder och inväntar ACK)
+ - 2 garanterad leverans en gång (långsamt men säkert)
 
 ## Installera Brokers
 * Se <a href="installera.md">installera<a>
