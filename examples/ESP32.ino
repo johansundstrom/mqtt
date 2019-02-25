@@ -1,4 +1,3 @@
-```c
 /*********
   Rui Santos
   Complete project details at https://randomnerdtutorials.com  
@@ -154,4 +153,3 @@ void loop() {
     client.publish("b9/humid", humString);
   }
 }
-```
