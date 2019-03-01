@@ -25,15 +25,17 @@ https://www.eclipse.org/mosquitto/download
 välj mosquitto-1.4.15-install-win32.exe då den kompenserar för fler beroenden.
 Observera att båda versionerna har beroenden och att flera DLL's behöver installeras utöver installationspaketet. Mer info i readme-windows.txt.
 
-(saknas ssleay32.dll och libeay32.dll)
+(Testad och verifierad)
 
 ## Installera på MAC
 http://macappstore.org/mosquitto/
 
-(ej testad)
+(Testad och verifierad)
 
 ## Installera på Arduino
 Flera bibliotek finns. Jag rekommenderar PubSubClient av Nick O'Leary.
+
+(Testad och verifierad)
 
 ## Testa Broker
 ```bash
