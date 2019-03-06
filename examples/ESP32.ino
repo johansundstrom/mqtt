@@ -10,10 +10,15 @@
 #include <Adafruit_BME280.h>
 #include <Adafruit_Sensor.h>
 
-
-const char* ssid = "***********";
-const char* password = "************";
-const char* mqtt_server = "192.168.250.20";
+// Replace the next variables with your SSID/Password combination
+const char* ssid = *********";
+const char* password = "*********";
+const char* mqtt_server = "be9.asuscomm.com";
+const char* temp_topic = "b9/temperature";
+const char* humid_topic = "b9/humidity";
+const char* pres_topic = "b9/pressure";
+const char* alt_topic = "b9/altitude";
+const char* sub_topic = "b9/esp32/led";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -22,11 +27,13 @@ char msg[50];
 int value = 0;
 
 //uncomment the following lines if you're using SPI
-/*#include <SPI.h>
+/*#include 
 #define BME_SCK 18
 #define BME_MISO 19
 #define BME_MOSI 23
 #define BME_CS 5*/
+
+#define SEALEVELPRESSURE_HPA (1013.25)
 
 Adafruit_BME280 bme; // I2C
 //Adafruit_BME280 bme(BME_CS); // hardware SPI
@@ -35,27 +42,26 @@ float temperature = 0;
 float humidity = 0;
 
 // LED Pin
-const int ledPin = 4;
+//const int LED_BUILTIN = 4;
 
 void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+  
   Serial.begin(115200);
   // default settings
   // (you can also pass in a Wire library object like &Wire2)
   //status = bme.begin();  
-  if (!bme.begin(0x76)) {
+  if (!bme.begin(0x77)) { //0x77 är 4-värdes BME, 0x76 är 2-värdes
     Serial.println("Could not find a valid BME280 sensor, check wiring!");
     while (1);
   }
   setup_wifi();
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
-
-  pinMode(ledPin, OUTPUT);
 }
 
 void setup_wifi() {
   delay(10);
-  // We start by connecting to a WiFi network
   Serial.println();
   Serial.print("Connecting to ");
   Serial.println(ssid);
@@ -63,13 +69,13 @@ void setup_wifi() {
   WiFi.begin(ssid, password);
 
   while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
+    delay(250);
     Serial.print(".");
   }
 
   Serial.println("");
   Serial.println("WiFi connected");
-  Serial.println("IP address: ");
+  Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
 }
 
@@ -86,18 +92,17 @@ void callback(char* topic, byte* message, unsigned int length) {
   Serial.println();
 
   // Feel free to add more if statements to control more GPIOs with MQTT
-
   // If a message is received on the topic esp32/output, you check if the message is either "on" or "off". 
   // Changes the output state according to the message
-  if (String(topic) == "b9/demo") {
+  if (String(topic) == sub_topic) {
     Serial.print("Changing output to ");
     if(messageTemp == "on"){
       Serial.println("on");
-      digitalWrite(ledPin, HIGH);
+      digitalWrite(LED_BUILTIN, HIGH);
     }
     else if(messageTemp == "off"){
       Serial.println("off");
-      digitalWrite(ledPin, LOW);
+      digitalWrite(LED_BUILTIN, LOW);
     }
   }
 }
@@ -110,7 +115,7 @@ void reconnect() {
     if (client.connect("ESP8266Client")) {
       Serial.println("connected");
       // Subscribe
-      client.subscribe("b9/demo");
+      client.subscribe(sub_topic);
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -134,22 +139,46 @@ void loop() {
     temperature = bme.readTemperature();   
     // Uncomment the next line to set temperature in Fahrenheit 
     // (and comment the previous temperature line)
-    //temperature = 1.8 * bme.readTemperature() + 32; // Temperature in Fahrenheit
+    // temperature = 1.8 * bme.readTemperature() + 32; // Temperature in Fahrenheit
     
-    // Convert the value to a char array
+    // Convert temp value to a char array
     char tempString[8];
     dtostrf(temperature, 1, 2, tempString);
     Serial.print("Temperature: ");
-    Serial.println(tempString);
-    client.publish("b9/temp", tempString);
+    Serial.print(tempString);
+    Serial.println(" °C");
+    client.publish(temp_topic, tempString);
 
+    
     humidity = bme.readHumidity();
     
-    // Convert the value to a char array
+    // Convert humid value to a char array
     char humString[8];
     dtostrf(humidity, 1, 2, humString);
     Serial.print("Humidity: ");
-    Serial.println(humString);
-    client.publish("b9/humid", humString);
+    Serial.print(humString);
+    Serial.println(" %Rh");
+    client.publish(humid_topic, humString);
+
+
+    float pressure = bme.readPressure()  / 100.0F;
+
+    char presString[8];
+    dtostrf(pressure, 1, 2, presString);
+    Serial.print("Pressure: ");
+    Serial.print(presString);
+    Serial.println(" hPa");
+    client.publish(pres_topic, presString);
+
+
+    float altitude = bme.readAltitude(SEALEVELPRESSURE_HPA);
+
+    char altString[8];
+    dtostrf(altitude, 1, 2, altString);
+    Serial.print("Approx. Altitude: ");
+    Serial.print(altString);
+    Serial.println(" m");
+    client.publish(alt_topic, altString);
+    
   }
 }
