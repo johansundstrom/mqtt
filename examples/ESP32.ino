@@ -162,7 +162,7 @@ void loop() {
     client.publish(humid_topic, humString);
 
 
-    float pressure = bme.readPressure()  / 100.0F;
+    float pressure = bme.readPressure() / 100.0F;
 
     char presString[8];
     dtostrf(pressure, 1, 2, presString);
