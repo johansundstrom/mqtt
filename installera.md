@@ -39,9 +39,9 @@ Flera bibliotek finns. Jag rekommenderar PubSubClient av Nick O'Leary.
 
 ## Testa mot Broker
 ```bash
-// Starta subscriber. -h host, -t topic
+// -h host, -t topic
 mosquitto_sub -h broker-dns -t topic/subtopic
 
-// Starta publisher. -m message
+// -h host, -t topic, -m message
 mosquitto_pub -h broker-dns -t topic/subtopic -m "testing testing..."
 ```
