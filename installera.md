@@ -37,11 +37,11 @@ Flera bibliotek finns. Jag rekommenderar PubSubClient av Nick O'Leary.
 
 (Testad och verifierad)
 
-## Testa Broker
+## Testa mot Broker
 ```bash
 // Starta subscriber. -h host, -t topic
-mosquitto_sub -h localhost -t test
+mosquitto_sub -h broker-dns -t topic/subtopic
 
 // Starta publisher. -m message
-mosquitto_pub -h localhost -t test -m "testing testing..."
+mosquitto_pub -h broker-dns -t topic/subtopic -m "testing testing..."
 ```
