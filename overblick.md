@@ -11,8 +11,8 @@
 * Sensorer sänder - Publisher
 * Lampor lyssnar - Subscriber
 * Broker har tre olika QoS
-  - 0 levereras endast en gång (mest osäkert)
-  - 1 levereras minst en gång (sänder och inväntar ACK)
+  - 0 levererar endast en gång (mest osäkert)
+  - 1 levererar minst en gång (sänder och inväntar ACK)
   - 2 garanterad leverans en gång (långsamt men säkert)
 
 ## Installera Brokers
@@ -20,15 +20,15 @@
 
 ## Topics
 * Användaren bestämmer namn på topics
-* Topics kan bestå av flera undertopics - *Topiclevels*
-* Topiclevels separeras med "/"
+* Topics kan bestå av flera undertopics - *Topic levels*
+* Topic levels separeras med "/"
 * Krav på ett Topic's namn
   * Case sensitive
   * UTF-8
   * Minst ett tecken
   * får inte vara <a href="https://github.com/mqtt/mqtt.github.io/wiki/SYS-Topics">$SYS</a> då detta är reserverat
 
-## Subscribe av Multi- eller Singlelevel topics
+## Subscribe av Multi- eller Single level topics
 
 * Subscribe med Single level
 ```code
@@ -49,10 +49,9 @@
 
 * Subscribe med wildcard - /b9/+/+/strömbrytare
 ```code
-/b9/1/rum
-/b9/2/rum/kök/
-/b9/2/rum/vardagsrum
-/b9/2/rum/hall
+/b9/1/sovrum/strömbrytare
+/b9/2/kök/strömbrytare
+/b9/2/vardagsrum/strömbrytare
 ```
 
 * Multilevel: Subscribe av /b9/2/# -- tre träffar
