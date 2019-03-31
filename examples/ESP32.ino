@@ -180,5 +180,7 @@ void loop() {
     Serial.print(altString);
     Serial.println(" m");
     client.publish(alt_topic, altString);
+
+    Serial.println("--------------"); 
   }
 }

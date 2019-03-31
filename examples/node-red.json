@@ -1,0 +1,298 @@
+[
+    {
+        "id": "dc38c25c.a5b0b",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b38067d2.e6beb8",
+        "type": "mqtt in",
+        "z": "dc38c25c.a5b0b",
+        "name": "Temperature",
+        "topic": "b9/temperature",
+        "qos": "0",
+        "broker": "fe12dc60.fc8c2",
+        "x": 125.5,
+        "y": 88,
+        "wires": [
+            [
+                "b459bb9f.aca768"
+            ]
+        ]
+    },
+    {
+        "id": "7e46882.d6b8d78",
+        "type": "mqtt in",
+        "z": "dc38c25c.a5b0b",
+        "name": "Humidity",
+        "topic": "b9/humidity",
+        "qos": "0",
+        "broker": "fe12dc60.fc8c2",
+        "x": 111,
+        "y": 159,
+        "wires": [
+            [
+                "1555b659.fa1aba"
+            ]
+        ]
+    },
+    {
+        "id": "53c9ae70.45663",
+        "type": "mqtt in",
+        "z": "dc38c25c.a5b0b",
+        "name": "Pressure",
+        "topic": "b9/pressure",
+        "qos": "0",
+        "broker": "fe12dc60.fc8c2",
+        "x": 112,
+        "y": 227,
+        "wires": [
+            [
+                "91cb8261.fdf2c"
+            ]
+        ]
+    },
+    {
+        "id": "b459bb9f.aca768",
+        "type": "ui_chart",
+        "z": "dc38c25c.a5b0b",
+        "name": "",
+        "group": "9e280652.40bf38",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 524.5,
+        "y": 89,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "1555b659.fa1aba",
+        "type": "ui_chart",
+        "z": "dc38c25c.a5b0b",
+        "name": "",
+        "group": "5db4beaf.e5ff4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Humidity",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 513,
+        "y": 156,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "91cb8261.fdf2c",
+        "type": "ui_chart",
+        "z": "dc38c25c.a5b0b",
+        "name": "",
+        "group": "8e123b46.08bfd8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Pressure",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 516,
+        "y": 242,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "125955bd.7f1d0a",
+        "type": "ui_switch",
+        "z": "dc38c25c.a5b0b",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "906f0f46.d24f9",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "b9/esp32/led",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 134.5,
+        "y": 323,
+        "wires": [
+            [
+                "63e05de9.a536b4"
+            ]
+        ]
+    },
+    {
+        "id": "63e05de9.a536b4",
+        "type": "mqtt out",
+        "z": "dc38c25c.a5b0b",
+        "name": "",
+        "topic": "b9/esp32/led",
+        "qos": "0",
+        "retain": "true",
+        "broker": "fe12dc60.fc8c2",
+        "x": 526.5,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "fe12dc60.fc8c2",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "B9",
+        "broker": "be9.asuscomm.com",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "9e280652.40bf38",
+        "type": "ui_group",
+        "z": "",
+        "name": "Temperature",
+        "tab": "f1e2230f.a40f8",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "5db4beaf.e5ff4",
+        "type": "ui_group",
+        "z": "",
+        "name": "Humidity",
+        "tab": "f1e2230f.a40f8",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "8e123b46.08bfd8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Pressure",
+        "tab": "f1e2230f.a40f8",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "906f0f46.d24f9",
+        "type": "ui_group",
+        "z": "",
+        "name": "LED",
+        "tab": "f1e2230f.a40f8",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "f1e2230f.a40f8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
