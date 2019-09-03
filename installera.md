@@ -15,7 +15,7 @@ sudo apt install -y mosquitto mosquitto-clients
 
 ## Installera på LINUX
 ```bash
-sudo apt-get install mosquito mosquito-clients
+sudo apt-get install mosquitto mosquitto-clients
 ```
 
 (Testad och verifierad)
