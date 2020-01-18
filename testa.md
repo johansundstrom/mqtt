@@ -1,12 +1,19 @@
 <a href="README.md"><< tillbaka</a>
 
-# Test
+# Test av Eclipse Mosquitto
 
-## Testa mot Broker
+Starta en terminal
+
+## Skapa en Subscriber
+
+-h host, -t topic, -m message
+
 ```bash
-// -h host, -t topic
 mosquitto_sub -h broker-dns -t topic/subtopic
+```
 
-// -h host, -t topic, -m message
+## Skapa en Publisher
+
+```bash
 mosquitto_pub -h broker-dns -t topic/subtopic -m "testing testing..."
 ```
