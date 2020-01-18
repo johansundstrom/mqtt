@@ -34,24 +34,39 @@
 ```code
 /
 /b9
-/b9/1/sovrum
-/b9/2/rum/kök
-/b9/2/rum/vardagsrum
-/b9/2/rum/hall
+/b9/kitchen
+/b9/kitchen/windowLights
+/b9/kitchen/ceiling
+/b9/office/ceiling
+/b9/lounge
+/b9/lounge/windowLights
+/b9/lounge/lights
+/b9/lounge/ceiling
 ```
 
-* Subscribe med wildcard - /b9/2/#
+* Subscribe med wildcard 
+```/b9/lounge/#``` ger tre träffar
 ```code
-/b9/2/rum/kök
-/b9/2/rum/vardagsrum
-/b9/2/rum/hall
+/b9/lounge/ceiling
+/b9/lounge/lights
+/b9/lounge/windowLights
 ```
 
-* Subscribe med wildcard - /b9/+/+/strömbrytare
+* Subscribe med wildcard
+```/b9/+/ceiling``` ger tre träffar
 ```code
-/b9/1/sovrum/strömbrytare
-/b9/2/kök/strömbrytare
-/b9/2/vardagsrum/strömbrytare
+/b9/kitchen/ceiling
+/b9/office/ceiling
+/b9/lounge/ceiling
 ```
 
-* Multilevel: Subscribe av /b9/2/# -- tre träffar
+* Multilevel: Subscribe med multilevel wildcard
+```/b9/+/#``` ger
+```code
+/b9/kitchen/windowLights
+/b9/kitchen/ceiling
+/b9/office/ceiling
+/b9/lounge/windowLights
+/b9/lounge/lights
+/b9/lounge/ceiling
+```
