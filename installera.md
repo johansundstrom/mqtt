@@ -36,3 +36,8 @@ http://macappstore.org/mosquitto/
 Flera bibliotek finns. Jag rekommenderar PubSubClient av Nick O'Leary.
 
 (Testad och verifierad)
+
+## Installera MQTT-Explorer (GUI-verktyg)
+http://mqtt-explorer.com/
+Fungerar mot alla plattformar (Windows/Mac/Ubuntu/Linux)
+
