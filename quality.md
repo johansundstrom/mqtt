@@ -8,16 +8,14 @@
   
   * QoS 1 - meddelande lagras till PUBACK erhålls
     
-    MQTT klient --publish --> MQTT Broker
-    
-    MQTT Klient <-- PUBACK-- MQTT Broker
+    | MQTT klient | --publish --> | MQTT Broker |
+    |---|---|---|
+    | MQTT Klient | <-- PUBACK-- | MQTT Broker |
   
   * QoS 2 - Säkrast och långsammast
   
-    MQTT klient --publish--> MQTT Broker
-    
-    MQTT Klient <-- PUBACK-- MQTT Broker
-    
-    MQTT Klient -- PUBREL--> MQTT Broker
-    
-    MQTT Klient <--PUBCOMP-- MQTT Broker
+    | MQTT klient | --publish --> | MQTT Broker |
+    |---|---|---|
+    | MQTT Klient | <-- PUBACK-- | MQTT Broker |
+    | MQTT Klient | -- PUBREL--> | MQTT Broker |
+    | MQTT Klient | <--PUBCOMP-- | MQTT Broker |
