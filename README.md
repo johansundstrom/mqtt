@@ -6,4 +6,4 @@ om MQTT
 * <a href="installera.md">Installera</a>
 * <a href="testa.md">Testa</a>
 * <a href="users.md">Skapa användare</a>
-
+* <a href="quality.md">QoS</a>
