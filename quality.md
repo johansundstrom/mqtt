@@ -4,7 +4,7 @@
   * QoS 0 - fire and forget
   
     | MQTT klient | --publish--> | MQTT Broker |
-    --
+    |---|---|---|
   
   * QoS 1 - meddelande lagras till PUBACK erhålls
     
